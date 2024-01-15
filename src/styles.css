@@ -1,0 +1,44 @@
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* veya istediğiniz genişlik */
+  margin: auto;
+}
+
+/* Carousel Image */
+.carousel-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* isteğe bağlı: köşeleri yuvarlamak için */
+  transition: opacity 0.5s ease-in-out; /* geçiş efekti: 0.5 saniye, kolay giriş/çıkış */
+}
+
+/* Previous and Next Buttons */
+.carousel-container button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.carousel-container button:hover {
+  background-color: #555;
+}
+
+/* Hide Next Button When Last Image */
+.carousel-container button.next {
+  right: 0;
+  display: ${({ isLastImage }) => (isLastImage ? 'none' : 'block')};
+}
+
+/* Hide Previous Button When First Image */
+.carousel-container button.prev {
+  left: 0;
+  display: ${({ isFirstImage }) => (isFirstImage ? 'none' : 'block')};
+}
